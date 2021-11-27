@@ -16,4 +16,16 @@ if response.status_code != 200:
     exit()
 ## Makes the Json into python dictionary
 data = response.json()
-print(data)
+exit = False
+while exit != True:
+    value = input(
+        "Hello! Please input 1 to view all the tickets or 2 to view a specific ticket"
+    )
+    v1 = int(value)
+    if v1 == 1:
+        print("Function to display all tickets")
+    if v1 == 2:
+        ticketnumber = input("Please enter ticket number to view")
+
+        if ticketnumber == 3:
+            print("Here is ticket 3")
