@@ -17,15 +17,46 @@ if response.status_code != 200:
 ## Makes the Json into python dictionary
 data = response.json()
 exit = False
+
+
+def printalltickets():
+    for ticket in data["tickets"]:
+        print(
+            "Ticket with subject "
+            + ticket["subject"]
+            + " created at "
+            + ticket["created_at"]
+            + " with a priority of "
+            + ticket["priority"]
+            + " with an Id number "
+            + str(ticket["id"])
+        )
+
+
+def printspecificticket(tickenumber):
+    for ticket in data["tickets"]:
+        if str(ticket["id"]) == tickenumber:
+            print(
+                "Ticket with subject "
+                + ticket["subject"]
+                + " created at "
+                + ticket["created_at"]
+                + " with a priority of "
+                + ticket["priority"]
+                + " with an Id number "
+                + str(ticket["id"])
+            )
+
+
 while exit != True:
     value = input(
-        "Hello! Please input 1 to view all the tickets or 2 to view a specific ticket"
+        "Hello! Please input 1 to view all the tickets,2 to view a specific ticket or 3 to quit the program "
     )
     v1 = int(value)
     if v1 == 1:
-        print("Function to display all tickets")
+        printalltickets()
     if v1 == 2:
-        ticketnumber = input("Please enter ticket number to view")
-
-        if ticketnumber == 3:
-            print("Here is ticket 3")
+        ticketnumber = input("Please enter ticket ID number to view ")
+        printspecificticket(ticketnumber)
+    if v1 == 3:
+        quit()
