@@ -5,6 +5,7 @@
 import requests
 
 ## Below is user credentials
+## To test with different cridentials replace zcccountryfinancial with own subdomain, replace user with own email address, replace pwd with own password
 url = "https://zcccountryfinancial.zendesk.com/api/v2/tickets.json"
 user = "jtj4@illinois.edu"
 pwd = "Chockey121#121"
