@@ -22,8 +22,10 @@ class TicketViewer:
 
     def printalltickets(self):
         count = 0
+        count2 = 10
+        exit = False
         for ticket in self.data["tickets"]:
-            if count <= 25:
+            if count < 10:
                 print(
                     "Ticket with subject "
                     + ticket["subject"]
@@ -32,19 +34,24 @@ class TicketViewer:
                     + " with an Id number "
                     + str(ticket["id"])
                 )
-            if count > 25:
-                value = input("Press 4 to page to the next set of 25 tickets ")
-                v1 = int(value)
-                if v1 == 4:
+            count = count + 1
+        while exit == False:
+            value = input("Press 4 to page to the next set of 25 tickets ")
+            v1 = int(value)
+            if v1 == 4:
+                count3 = count2 + 10
+                while count2 < count and count2 < count3:
                     print(
                         "Ticket with subject "
-                        + ticket["subject"]
+                        + self.data["tickets"][count2]["subject"]
                         + " created at "
-                        + ticket["created_at"]
+                        + self.data["tickets"][count2]["created_at"]
                         + " with an Id number "
-                        + str(ticket["id"])
+                        + str(self.data["tickets"][count2]["id"])
                     )
-            count = count + 1
+                    count2 = count2 + 1
+                if count2 == count:
+                    exit = True
         ## Used for testing purposes returns number of tickets displayed
         return count
 
