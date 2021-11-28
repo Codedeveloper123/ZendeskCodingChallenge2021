@@ -16,21 +16,37 @@ class TicketViewer:
         response = requests.get(self.url, auth=(self.user, self.pwd))
         if response.status_code != 200:
             print("Status:", response.status_code, "Problem with the request. Exiting.")
-            exit()
+            ## Following return is for testing purposes as it is hard to test print statments
+            return 0
         self.data = response.json()
 
     def printalltickets(self):
+        count = 0
         for ticket in self.data["tickets"]:
-            print(
-                "Ticket with subject "
-                + ticket["subject"]
-                + " created at "
-                + ticket["created_at"]
-                + " with a priority of "
-                + ticket["priority"]
-                + " with an Id number "
-                + str(ticket["id"])
-            )
+            if count <= 25:
+                print(
+                    "Ticket with subject "
+                    + ticket["subject"]
+                    + " created at "
+                    + ticket["created_at"]
+                    + " with an Id number "
+                    + str(ticket["id"])
+                )
+            if count > 25:
+                value = input("Press 4 to page to the next set of 25 tickets ")
+                v1 = int(value)
+                if v1 == 4:
+                    print(
+                        "Ticket with subject "
+                        + ticket["subject"]
+                        + " created at "
+                        + ticket["created_at"]
+                        + " with an Id number "
+                        + str(ticket["id"])
+                    )
+            count = count + 1
+        ## Used for testing purposes returns number of tickets displayed
+        return count
 
     def printspecificticket(self, tickenumber):
         for ticket in self.data["tickets"]:
@@ -40,8 +56,6 @@ class TicketViewer:
                     + ticket["subject"]
                     + " created at "
                     + ticket["created_at"]
-                    + " with a priority of "
-                    + ticket["priority"]
                     + " with an Id number "
                     + str(ticket["id"])
                 )
