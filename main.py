@@ -11,5 +11,5 @@ user = "jtj4@illinois.edu"
 pwd = "Chockey121#121"
 application = TicketViewer()
 application._init_(url, user, pwd)
-application.connecttozendeskapi()
-application.runapplication()
+application.connect_to_zendesk_api()
+application.run_application()

@@ -12,7 +12,7 @@ class TicketViewer:
         self.user = useremail
         self.pwd = userpwd
 
-    def connecttozendeskapi(self):
+    def connect_to_zendesk_api(self):
         response = requests.get(self.url, auth=(self.user, self.pwd))
         if response.status_code != 200:
             print("Status:", response.status_code, "Problem with the request. Exiting.")
@@ -20,12 +20,12 @@ class TicketViewer:
             return 0
         self.data = response.json()
 
-    def printalltickets(self):
+    def print_all_tickets(self):
         count = 0
-        count2 = 10
+        count2 = 25
         exit = False
         for ticket in self.data["tickets"]:
-            if count < 10:
+            if count < 25:
                 print(
                     "Ticket with subject "
                     + ticket["subject"]
@@ -39,7 +39,7 @@ class TicketViewer:
             value = input("Press 4 to page to the next set of 25 tickets ")
             v1 = int(value)
             if v1 == 4:
-                count3 = count2 + 10
+                count3 = count2 + 25
                 while count2 < count and count2 < count3:
                     print(
                         "Ticket with subject "
@@ -55,9 +55,9 @@ class TicketViewer:
         ## Used for testing purposes returns number of tickets displayed
         return count
 
-    def printspecificticket(self, tickenumber):
+    def print_specific_ticket(self, ticket_id_number):
         for ticket in self.data["tickets"]:
-            if str(ticket["id"]) == tickenumber:
+            if str(ticket["id"]) == ticket_id_number:
                 print(
                     "Ticket with subject "
                     + ticket["subject"]
@@ -66,8 +66,9 @@ class TicketViewer:
                     + " with an Id number "
                     + str(ticket["id"])
                 )
+                return 0
 
-    def runapplication(self):
+    def run_application(self):
 
         while exit != True:
             value = input(
