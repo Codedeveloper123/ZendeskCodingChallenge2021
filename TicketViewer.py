@@ -14,6 +14,7 @@ class TicketViewer:
 
     def connect_to_zendesk_api(self):
         response = requests.get(self.url, auth=(self.user, self.pwd))
+        ## Prints error message if it can't connect to the API
         if response.status_code != 200:
             print("Status:", response.status_code, "Problem with the request. Exiting.")
             ## Following return is for testing purposes as it is hard to test print statments
@@ -35,6 +36,7 @@ class TicketViewer:
                     + str(ticket["id"])
                 )
             count = count + 1
+        ## This while loop makes sure it pages through as many tickets as needed untill all are displayed
         while exit == False:
             value = input("Press 4 to page to the next set of 25 tickets ")
             v1 = int(value)
