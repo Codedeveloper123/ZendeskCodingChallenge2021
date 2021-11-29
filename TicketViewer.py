@@ -76,9 +76,9 @@ class TicketViewer:
             )
             v1 = int(value)
             if v1 == 1:
-                self.printalltickets()
+                self.print_all_tickets()
             if v1 == 2:
                 ticketnumber = input("Please enter ticket ID number to view ")
-                self.printspecificticket(ticketnumber)
+                self.print_specific_ticket(ticketnumber)
             if v1 == 3:
                 quit()
