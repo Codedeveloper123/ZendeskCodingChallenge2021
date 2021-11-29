@@ -39,7 +39,12 @@ class TicketViewer:
         ## This while loop makes sure it pages through as many tickets as needed untill all are displayed
         while exit == False:
             value = input("Press 4 to page to the next set of 25 tickets ")
-            v1 = int(value)
+            try:
+                v1 = int(value)
+            except ValueError:
+                print(
+                    "An error occured with the input you need to input a number on keypad "
+                )
             if v1 == 4:
                 count3 = count2 + 25
                 while count2 < count and count2 < count3:
@@ -76,7 +81,12 @@ class TicketViewer:
             value = input(
                 "Hello! Please input 1 to view all the tickets,2 to view a specific ticket or 3 to quit the program "
             )
-            v1 = int(value)
+            try:
+                v1 = int(value)
+            except ValueError:
+                print(
+                    "An error occured with the input you need to input a number on keypad "
+                )
             if v1 == 1:
                 self.print_all_tickets()
             if v1 == 2:
