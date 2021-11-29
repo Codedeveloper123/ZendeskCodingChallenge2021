@@ -1,15 +1,15 @@
 # ZendeskCodingChallenge2021
 ## Installation Instructions
 1. Install Python on Computer
-     Use this link if not on device https://realpython.com/installing-python/.
+    - Use this link if not on device https://realpython.com/installing-python/.
 2. Install VSCODE
-    Use this link to download if not on device https://code.visualstudio.com/download
+   - Use this link to download if not on device https://code.visualstudio.com/download
 3. Install VSCODE Python extension
-    Hit Ctrl + shift + x. Then type python in the extensions bar and then hit install. 
+  -  Hit Ctrl + shift + x. Then type python in the extensions bar and then hit install. 
 4. Install PIP onto machine
-    If you are using python 2.7.9 or greater it should already be installed if not follow the instructions in this link https://www.makeuseof.com/tag/install-pip-for-python/
+   - If you are using python 2.7.9 or greater it should already be installed if not follow the instructions in this link https://www.makeuseof.com/tag/install-pip-for-python/
 5. Install requests on computer 
-    Type this command on terminal python -m pip install requests
+   - Type this command on terminal python -m pip install requests
 ## Usage Instructions
 1. To change the dataset change the url, useremail, and password fields in main.py
 ![](2021-11-27-20-44-34.png)
