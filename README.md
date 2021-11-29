@@ -11,6 +11,7 @@
 5. Install requests on computer 
    - Type this command on terminal python -m pip install requests
 ## Usage Instructions
+Pull this github repo into vscode.
 1. To change the dataset change the url, useremail, and password fields in main.py
 ![](2021-11-27-20-44-34.png)
 2.  Click onto main.py editor, Click Run and then Run withought debuggging 
